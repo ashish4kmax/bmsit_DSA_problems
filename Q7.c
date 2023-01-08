@@ -58,7 +58,7 @@ NODE deletefront(NODE head)
     else
     {
         NODE temp = head->next;
-        printf("Deleted data is of Name = %s\n", head->name);
+        printf("Deleted data is of Name = %s\n\n", head->name);
         free(head);
         return temp;
     }
@@ -69,6 +69,12 @@ NODE deleteend(NODE head)
     if (head == NULL)
     {
         printf("Linked List is empty!!\n");
+        return head;
+    }
+    else if(head->next==NULL) {
+        printf("Deleted data is of Name = %s\n\n", head->name);
+        head = NULL;
+        return head;
     }
     else
     {
@@ -78,7 +84,7 @@ NODE deleteend(NODE head)
             prev = curr;
             curr = curr->next;
         }
-        printf("Deleted data is of Name = %s\n", curr->name);
+        printf("Deleted data is of Name = %s\n\n", curr->name);
         free(curr);
         prev->next = NULL;
         return head;
@@ -121,7 +127,7 @@ int main()
 
     for (;;)
     {
-        printf("Menue\n");
+        printf("\nMenue\n");
         printf("1.Insert the student datas\n");
         printf("2.Delete data from front\n");
         printf("3.Delete data from the end\n");
