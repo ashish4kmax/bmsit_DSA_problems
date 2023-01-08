@@ -72,15 +72,15 @@ NODE deleteend(NODE head)
     }
     else
     {
-        NODE curr = head, prev;
+        NODE curr = head->next, prev = head;
         while (curr->next != NULL)
         {
             prev = curr;
             curr = curr->next;
         }
-        prev->next = NULL;
         printf("Deleted data is of Name = %s\n", curr->name);
         free(curr);
+        prev->next = NULL;
         return head;
     }
 }
@@ -118,7 +118,7 @@ int main()
     {
         head = insertbeg(head);
     }
-    
+
     for (;;)
     {
         printf("Menue\n");
