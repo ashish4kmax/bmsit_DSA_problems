@@ -160,7 +160,7 @@ void display(NODE head)
 
 void backward(NODE head)
 {
-    NODE curr = head;
+    NODE newnode = head;
     if (head == NULL)
     {
         printf("Doubly linked list is empty!!\n");
@@ -168,19 +168,24 @@ void backward(NODE head)
     else
     {
         int count = 0;
-        while (curr != NULL)
+        NODE p=head;
+        newnode->prev=NULL;
+        while (newnode->next != NULL)
         {
-            curr->prev = head->next;
-            curr = curr->next;
+            p=newnode;
+            newnode = newnode->next;
+            newnode->prev=p;
         }
-        curr->prev = head;
         printf("ssn\t\tname\t\tBranch\tdesg\t\tsalary\tphone\n");
-        while (curr->prev != NULL)
+        // printf("%-20s%-15s%-5s%-10s%5d\t%-10s\n", newnode->ssn, p->next->name, p->next->branch, p->next->desg, p->next->sal, p->next->phone);
+        while (newnode->prev != NULL)
         {
-            printf("%-20s%-15s%-5s%-10s%5d\t%-10s\n", curr->ssn, curr->name, curr->branch, curr->desg, curr->sal, curr->phone);
-            curr = curr->prev;
+            printf("%-20s%-15s%-5s%-10s%5d\t%-10s\n", newnode->ssn, newnode->name, newnode->branch, newnode->desg, newnode->sal, newnode->phone);
+            newnode = newnode->prev;
             count++;
         }
+        printf("%-20s%-15s%-5s%-10s%5d\t%-10s\n", newnode->ssn, newnode->name, newnode->branch, newnode->desg, newnode->sal, newnode->phone);
+        count++;
         printf("\nTotal no. of nodes = %d\n", count);
     }
 }
@@ -194,6 +199,7 @@ int main()
     for (int i = 0; i < n; i++)
     {
         head = insertend(head);
+        printf("\n");
     }
     for (;;)
     {
