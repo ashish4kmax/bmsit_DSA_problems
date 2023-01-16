@@ -29,7 +29,8 @@ NODE insertbeg(NODE head)
     scanf("%s", temp->ssn);
     getchar();
     printf("Enter the name of the employee : ");
-    scanf("%s", temp->name);
+    //scanf("%s", temp->name);
+    gets(temp->name);
     getchar();
     printf("Enter the branch of the employee : ");
     scanf("%s", temp->branch);
@@ -55,7 +56,8 @@ NODE insertend(NODE head)
     scanf("%s", temp->ssn);
     getchar();
     printf("Enter the name of the employee : ");
-    scanf("%s", temp->name);
+    //scanf("%s", temp->name);
+    gets(temp->name);
     getchar();
     printf("Enter the branch of the employee : ");
     scanf("%s", temp->branch);
