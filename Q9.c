@@ -32,14 +32,17 @@ void main()
         case 1:
             printf("Traverse of inorder\n");
             inorder(root);
+            printf("\n");
             break;
         case 2:
             printf("Traverse of postorder\n");
             postorder(root);
+            printf("\n");
             break;
         case 3:
             printf("Traverse of preorder\n");
             preorder(root);
+            printf("\n");
             break;
 
         case 4:
