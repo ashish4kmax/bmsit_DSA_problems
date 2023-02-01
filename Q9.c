@@ -6,17 +6,18 @@ struct node
     struct node *left, *right;
 };
 typedef struct node *NODE;
+
+NODE create(NODE root);
+void inorder(NODE root);
+void preorder(NODE root);
+void postorder(NODE root);
+void search(NODE root);
+
 void main()
 {
     int ch, n, i;
-    NODE create(NODE root);
-    void inorder(NODE root);
-    void preorder(NODE root);
-    void postorder(NODE root);
-    void search(NODE root);
     NODE root = NULL;
-    clrscr();
-    printf("enter the number of nodes\n");
+    printf("Enter the number of nodes : ");
     scanf("%d", &n);
     for (i = 0; i < n; i++)
         root = create(root);
@@ -122,9 +123,9 @@ void search(NODE root)
             return;
         }
         if (num < temp->num)
-            temp->left;
+            temp = temp->left;
         else if (num > temp->num)
-            temp->right;
+            temp = temp->right;
     }
     printf("Search is unsucessfull\n");
 }
