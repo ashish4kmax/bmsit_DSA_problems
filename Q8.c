@@ -160,6 +160,8 @@ void display(NODE head)
     }
 }
 
+/*-------------------------------This is the code for back traversal in DE linked list its an extrapart!!-----------------------------------------------------------
+
 void backward(NODE head)
 {
     NODE newnode = head;
@@ -191,6 +193,7 @@ void backward(NODE head)
         printf("\nTotal no. of nodes = %d\n", count);
     }
 }
+*/
 
 int main()
 {
@@ -211,8 +214,8 @@ int main()
         printf("3.Delete at end\n");
         printf("4.Insert at beginning\n");
         printf("5.Delete at beginning\n");
-        printf("6.Backward Traversal\n");
-        printf("7.Exit\n");
+        //printf("6.Backward Traversal\n");
+        printf("6.Exit\n");
         printf("Enter your choice : ");
         scanf("%d", &choice);
         printf("\n\n");
@@ -238,9 +241,9 @@ int main()
             head = deletefront(head);
             break;
 
-        case 6:
-            backward(head);
-            break;
+//         case 6:
+//             backward(head);
+//             break;
 
         default:
             exit(0);
