@@ -13,39 +13,37 @@ void preorder(NODE root);
 void postorder(NODE root);
 void search(NODE root);
 
-void main()
+int main()
 {
     int ch, n, i;
     NODE root = NULL;
-    printf("Enter the number of nodes : ");
-    scanf("%d", &n);
-    for (i = 0; i < n; i++)
-        root = create(root);
     for (;;)
     {
-        printf("\n1-inorder\n2-postorder\n3-preorder\n4.search\n");
+        printf("\n1.create\n2.inorder\n3.postorder\n4.preorder\n5.search\n");
         printf("5-exit\n");
         printf("Enter your choice : ");
         scanf("%d", &ch);
         switch (ch)
         {
         case 1:
+            root=create(root);
+            break;
+        case 2:
             printf("Traverse of inorder\n");
             inorder(root);
             printf("\n");
             break;
-        case 2:
+        case 3:
             printf("Traverse of postorder\n");
             postorder(root);
             printf("\n");
             break;
-        case 3:
+        case 4:
             printf("Traverse of preorder\n");
             preorder(root);
             printf("\n");
             break;
-
-        case 4:
+        case 5:
             search(root);
             break;
         default:
