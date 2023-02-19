@@ -3,73 +3,48 @@
 
 struct node
 {
-    char ssn[12];
-    char name[25];
-    char branch[5];
-    char desg[10];
+    char ssn[12], name[25], branch[5], desg[10], phone[11];
     int sal;
-    char phone[11];
-    struct node *next;
-    struct node *prev;
+    struct node *next, *prev;
 };
 typedef struct node *NODE;
 
 NODE getnode()
 {
-    return ((struct node *)malloc(sizeof(struct node)));
+    NODE newnode = (struct node *)malloc(sizeof(struct node));
+    printf("Enter the ssn of the employee : ");
+    scanf("%s", newnode->ssn);
+    getchar();
+    printf("Enter the name of the employee : ");
+    //scanf("%s", newnode->name);
+    gets(newnode->name);
+    getchar();
+    printf("Enter the branch of the employee : ");
+    scanf("%s", newnode->branch);
+    getchar();
+    printf("Enter the desg of the employee : ");
+    scanf("%s", newnode->desg);
+    getchar();
+    printf("Enter the salary of the employee : ");
+    scanf("%d", &newnode->sal);
+    printf("Enter the phone number of the employee : ");
+    scanf("%s", newnode->phone);
+    return newnode;
 }
 
 NODE insertbeg(NODE head)
 {
-    int sal;
     NODE temp = getnode();
     temp->prev = NULL;
-    temp->next = NULL;
-    printf("Enter the ssn of the employee : ");
-    scanf("%s", temp->ssn);
-    getchar();
-    printf("Enter the name of the employee : ");
-    //scanf("%s", temp->name);
-    gets(temp->name);
-    getchar();
-    printf("Enter the branch of the employee : ");
-    scanf("%s", temp->branch);
-    getchar();
-    printf("Enter the desg of the employee : ");
-    scanf("%s", temp->desg);
-    getchar();
-    printf("Enter the salary of the employee : ");
-    scanf("%d", &temp->sal);
-    printf("Enter the phone number of the employee : ");
-    scanf("%s", temp->phone);
     temp->next = head;
     return temp;
 }
 
 NODE insertend(NODE head)
 {
-    int sal;
     NODE temp = getnode();
     temp->prev = NULL;
     temp->next = NULL;
-    printf("Enter the ssn of the employee : ");
-    scanf("%s", temp->ssn);
-    getchar();
-    printf("Enter the name of the employee : ");
-    //scanf("%s", temp->name);
-    gets(temp->name);
-    getchar();
-    printf("Enter the branch of the employee : ");
-    scanf("%s", temp->branch);
-    getchar();
-    printf("Enter the desg of the employee : ");
-    scanf("%s", temp->desg);
-    getchar();
-    printf("Enter the salary of the employee : ");
-    scanf("%d", &temp->sal);
-    // getchar();
-    printf("Enter the phone number of the employee : ");
-    scanf("%s", temp->phone);
     if (head == NULL)
     {
         return temp;
@@ -77,7 +52,7 @@ NODE insertend(NODE head)
     else if (head->next == NULL)
     {
         head->next = temp;
-        temp->prev = head->next;
+        temp->prev = head;
         return head;
     }
     else
@@ -88,7 +63,7 @@ NODE insertend(NODE head)
             curr = curr->next;
         }
         curr->next = temp;
-        temp->prev = curr->next;
+        temp->prev = curr;
         return head;
     }
 }
@@ -111,6 +86,7 @@ NODE deletefront(NODE head)
 
 NODE deleteend(NODE head)
 {
+    NODE curr = head;
     if (head == NULL)
     {
         printf("Doubly Linked List is empty!!\n");
@@ -118,21 +94,20 @@ NODE deleteend(NODE head)
     }
     else if (head->next == NULL)
     {
-        NODE temp = head->next;
-        printf("Deleted data is of name : %s\n", temp->name);
-        free(temp);
-        return head;
+        printf("Deleted data is of name : %s\n", curr->name);
+        free(curr);
+        return NULL;
     }
     else
     {
-        NODE curr = head, p = head;
+        NODE p = head;
         while (curr->next != NULL)
         {
             p = curr;
             curr = curr->next;
         }
-        curr->prev = p->next;
         p->next = NULL;
+        //curr->prev->next=NULL; //another way of assigning previous node's *next pointer to NULL, curr->prev is same as using p to store previous node
         printf("Deleted data is of name : %s\n", curr->name);
         free(curr);
         return head;
@@ -208,7 +183,7 @@ int main()
     }
     for (;;)
     {
-        printf("Menue\n");
+        printf("Menu\n");
         printf("1.Display\n");
         printf("2.Insert at end\n");
         printf("3.Delete at end\n");
