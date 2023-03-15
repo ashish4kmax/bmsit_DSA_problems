@@ -1,3 +1,5 @@
+// DFS - Deapth First Search in Graphs
+
 #include <stdio.h>
 #include <stdlib.h>
 int a[20][20], reach[20], n;
