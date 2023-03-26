@@ -1,7 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 using namespace std;
-
+// starts here
 void arraycr(int n,int *ptr) {
     // int n,*ptr;
     // printf("Enter the size of the array : ");
