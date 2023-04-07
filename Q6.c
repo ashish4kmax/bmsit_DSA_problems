@@ -13,7 +13,7 @@ void push_back(int DEQ[], int *rear, int *front, int *count) {
     *rear=(*rear+1)%MAX;
     *count=*count+1;
     DEQ[*rear]=elem;
-    if(*front=-1) {
+    if(*front==-1) {
         *front=*front+1;
     }
 }
@@ -28,7 +28,7 @@ void pop_back(int DEQ[], int *rear, int *front, int *count) {
     }
     printf("The deleted element is = %d\n",DEQ[*rear]);
     *rear=*rear-1;
-     *count=*count-1;
+    *count=*count-1;
 }
 
 void push_front(int DEQ[], int *rear, int *front, int *count) {
@@ -65,10 +65,12 @@ void display(int DEQ[], int *rear, int* front, int *count) {
         printf("Dequeue is empty\n");
         return;
     }
+    int x=*front;
     int i;
     printf("The dequeue elements are :\n");
-    for(i=*front;i<=*rear;i++) {
-        printf("%d\n",DEQ[i]);
+    for(i=1;i<=*count;i++) {
+        printf("%d\n",DEQ[x]);
+        x = (x+1)%MAX;
     }
 }
 
@@ -97,7 +99,6 @@ int main() {
 
         case 3:
             push_back(DEQ,&rear,&front,&count);
-            printf("%d\n",rear);
             break;
 
         case 4:
