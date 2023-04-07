@@ -42,6 +42,7 @@ NODE insertbeg(NODE head)
     newnode->sem = sem;
     newnode->phone = phone;
     newnode->next = head;
+    return newnode;
 }
 
 NODE deletefront(NODE head)
