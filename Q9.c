@@ -15,35 +15,38 @@ void search(NODE root);
 
 int main()
 {
-    int ch, n, i;
+    int n;
     NODE root = NULL;
+    printf("Enter the no. of nodes to be created : ");
+    scanf("%d",&n);
+    for(int i=0;i<n;i++) {
+        root = create(root);
+    }
+    int choice;
     for (;;)
     {
-        printf("\n1.create\n2.inorder\n3.postorder\n4.preorder\n5.search\n");
+        printf("\n1.inorder\n2.postorder\n3.preorder\n4.search\n");
         printf("5-exit\n");
         printf("Enter your choice : ");
         scanf("%d", &ch);
         switch (ch)
         {
         case 1:
-            root=create(root);
-            break;
-        case 2:
             printf("Traverse of inorder\n");
             inorder(root);
             printf("\n");
             break;
-        case 3:
+        case 2:
             printf("Traverse of postorder\n");
             postorder(root);
             printf("\n");
             break;
-        case 4:
+        case 3:
             printf("Traverse of preorder\n");
             preorder(root);
             printf("\n");
             break;
-        case 5:
+        case 4:
             search(root);
             break;
         default:
