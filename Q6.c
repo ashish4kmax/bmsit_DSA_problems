@@ -18,17 +18,22 @@ void push_back(int DEQ[], int *rear, int *front, int *count) {
     }
 }
 
-void pop_back(int DEQ[], int *rear, int *front, int *count) {
-    if(*count==-1) {
-        printf("Dequeue underflow\n");
+void pop_back(int DQ[MAX], int *front, int *rear, int *count) {
+    if (*count == 0) {
+        printf("DEqueue underflow\n");
         return;
     }
-    if(*rear==-1) {
-        *rear=MAX-1;
+    if (*rear == -1)
+    {
+        *rear = MAX - 1;
+        printf("Deleted element is = %d\n", DQ[*rear]);
     }
-    printf("The deleted element is = %d\n",DEQ[*rear]);
-    *rear=*rear-1;
-    *count=*count-1;
+    else
+    {
+        printf("Deleted element is = %d\n", DQ[*rear]);
+        *rear = *rear - 1;
+    }
+    *count = *count - 1;
 }
 
 void push_front(int DEQ[], int *rear, int *front, int *count) {
